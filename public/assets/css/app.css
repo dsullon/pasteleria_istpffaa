@@ -1,0 +1,130 @@
+:root {
+    --colorTexto: #4E2E1E;
+    --colorTextoSecundario: #C89F7E;
+    --colorVerde: #A7B59F;
+    --colorAcento: #FADADD;
+    --colorTop: #F2D4D7;
+    --colorFondo: #FFF6E8;
+    --colorBlanco: #FFF;
+
+    --fuentePrincipal: "Poppins", sans-serif;
+    --fuenteTitulo: "Playfair Display", serif;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--colorFondo);
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.layout {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/*HEADER*/
+.header__top {
+    background-color: var(--colorTop);
+}
+
+.header__top__contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.header__top__contenido a {
+    color: var(--colorTexto);
+}
+
+.header__top__contacto {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.header__top__redes a {
+    font-size: 2.8rem;
+}
+
+
+.header__nav {
+    background-color: var(--colorAcento);
+}
+
+.header__nav__contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__nav .logo {
+    height: 7rem;
+}
+
+.nav-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.nav-principal a {
+    font-family: var(--fuenteTitulo);
+    font-size: 2rem;
+    color: var(--colorTexto);
+    font-weight: 600;
+    padding: 1.7rem 1.5rem;
+    border-radius: 1rem;
+    transition: all .3s ease;
+}
+
+.nav-principal a:hover {
+    background-color: var(--colorTop);
+    transform: translateY(-3px);
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    margin-top: 4rem;
+}
+
+@media(min-width: 768px) {
+    .categorias__contenido {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }    
+}
+
+
+/*FOOTER*/
+
+footer {
+    background-color: var(--colorTexto);
+}

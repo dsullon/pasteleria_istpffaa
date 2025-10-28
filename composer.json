@@ -1,0 +1,21 @@
+{
+    "name": "dsullon/gran_molino",
+    "description": "Proyecto pasteleria GRAN MOLINO del curso de Proyecto Informático del IESTPFFAA",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alex Sullon",
+            "email": "alexsullonporras@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "./",
+            "Controllers\\": "./controllers",
+            "Models\\": "./models"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
