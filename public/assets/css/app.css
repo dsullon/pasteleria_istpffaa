@@ -184,6 +184,64 @@ img {
     color: var(--colorBlanco);
 }
 
+/* REGISTRO*/
+.registro {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.registro .registro__imagen {
+    background-image: url('../img/registro.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.registro .registro__formulario {
+    padding: 2rem;
+}
+
+/*FORM*/
+ form {
+    display: flex;
+    flex-direction: column;
+ }
+
+ form .campo {
+    margin-bottom: 1rem;
+ }
+
+ form label {
+    display: block;
+    font-weight: 700;
+    color: var(--colorTexto);
+ }
+
+ form input:not([type="submit"]), form textarea, form select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: .1rem solid var(--colorTextoSecundario);
+    outline: none;
+    transition: border .3s ease;
+ }
+
+ form input:not([type="submit"]):focus, form textarea:focus, form select:focus {
+    border: .2rem solid var(--colorTexto);
+
+ }
+
+ form input[type="submit"] {
+    margin: 1rem;
+    border-radius: .5rem;
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    background-color: var(--colorTexto);
+    color: var(--colorBlanco);
+    cursor: pointer;
+ }
+
 /*FOOTER*/
 
 footer {

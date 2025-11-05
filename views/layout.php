@@ -67,6 +67,6 @@
     
         </footer>
     </div>
-       
+    <script src="/assets/js/clientes.js"></script>
 </body>
 </html>
