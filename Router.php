@@ -37,7 +37,6 @@ class Router {
     }
 
     public function renderView($vista, $datos = []) {
-
         foreach ($datos as $key => $value) {
             $$key = $value;
         }
