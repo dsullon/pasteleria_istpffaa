@@ -2,6 +2,7 @@
 
 namespace Models;
 
+use Exception;
 use PDO;
 
 abstract class ActiveRecord {
@@ -43,6 +44,64 @@ abstract class ActiveRecord {
             $resultado[] = self::crearObjeto($fila);
         }
         return $resultado;
+    }
+
+    /**
+     * Crea o actualiza un registro
+     */
+    public function save(){
+        $resultado = false;
+        $propiedades = get_object_vars($this);
+        if(!isset($propiedades[static::$pk]))
+            $resultado = $this->crear($propiedades);
+        else
+            $resultado = $this->actualizar($propiedades);
+        return $resultado;
+    }
+
+    /**
+     * Busca regitros en base a una condición o criterio
+     */
+
+    public static function where(array $filters){
+        if(count($filters) == 0){
+            throw new Exception("No se ha ingresado los criterios a filtrar");
+        }
+        $params=[];
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ";
+        foreach ($filters as $key => $value) {
+            $criterias[] = "{$key}  = :{$key}";
+            $params[":{$key}"] = $value;
+        }
+        $query .= implode(" AND ", $criterias);
+
+        $stmt = self::$db->prepare($query);
+        $stmt->execute($params);
+        $datos = [];
+        while($fila = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $datos[] = self::crearObjeto($fila);
+        }
+        return $datos;
+    }
+
+    private function crear($propiedades) {
+        $columnas = [];
+        foreach ($propiedades as $key => $value) {
+            if($value && $key !== static::$pk){
+                $columnas[] = $key;
+                $places[] = ":$key";
+                $params[":$key"] = $value;
+            }
+        }
+        $query = "INSERT INTO " . static::$tabla . "(" . implode(", ", $columnas) . ") VALUES(". implode(", ", $places) .")";
+        $stmt = self::$db->prepare($query);
+        $resultado = $stmt->execute($params);
+        $this->{static::$pk} = self::$db->lastInsertId();
+        return $resultado;
+    }
+
+    private function actualizar($propiedades) {
+        
     }
 
     /**

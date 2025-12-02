@@ -9,6 +9,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 require_once 'database.php';
-
+// Llamar a funciones.php
+require_once 'funciones.php';
 
 ActiveRecord::setDB($db);

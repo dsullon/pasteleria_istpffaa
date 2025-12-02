@@ -2,12 +2,16 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use APIControllers\APIClientesController;
 use App\Router;
 use Controllers\CategoriaController;
 use Controllers\ClienteController;
 use Controllers\HomeController;
 
 $router = new Router();
+
+// API
+$router->post('/api/clientes', [APIClientesController::class, 'registrar']);
 
 // DEFINIR LAS RUTAS DE LA APLICACIÓN
 $router->get('/', [HomeController::class, 'index']);
