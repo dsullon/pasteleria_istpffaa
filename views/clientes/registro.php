@@ -27,3 +27,5 @@
         </form>
     </div>
 </div>
+
+<?php $script = '<script src="/assets/js/clientes.js"></script>'; ?>

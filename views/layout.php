@@ -67,7 +67,8 @@
     
         </footer>
     </div>
-    <script src="/assets/js/clientes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php echo $script ?? ''; ?>
 </body>
 </html>
